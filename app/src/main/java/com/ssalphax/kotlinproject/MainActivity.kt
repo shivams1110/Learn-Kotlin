@@ -45,6 +45,11 @@ class MainActivity : AppCompatActivity() {
             showNotification()
         }
 
+        btnNext.setOnClickListener {
+            val intent = Intent(this@MainActivity, ListActivity::class.java)
+            intent.putExtra("value","Shivam")
+            startActivity(intent)
+        }
 
 
 
