@@ -1,7 +1,16 @@
 package com.ssalphax.kotlinproject
 
+import android.annotation.TargetApi
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.media.RingtoneManager
+import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.NotificationCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -28,27 +37,64 @@ class MainActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener {
 //            Toast.makeText(this,"Hello"+name, Toast.LENGTH_SHORT).show()
-
-            val builder  = AlertDialog.Builder(this@MainActivity)
-            builder.setTitle("Test Alert Dialog")
-            builder.setMessage("Alert Dialog Work Fine "+ edtName.text)
-
-            builder.setPositiveButton("Yes"){dialogInterface, i ->
-                Toast.makeText(this, "Yes work fine", Toast.LENGTH_SHORT).show()
-                dialogInterface.dismiss()
-            }
-
-            builder.setNegativeButton("No"){dialogInterface, i ->
-                Toast.makeText(this, "Not fine", Toast.LENGTH_SHORT).show()
-                dialogInterface.dismiss()
-            }
-
-            val dialog: AlertDialog = builder.create()
-
-            dialog.show()
+            showAlert()
 
         }
 
+        btnNotification.setOnClickListener {
+            showNotification()
+        }
+
+
+
+
+
+    }
+
+    @TargetApi(Build.VERSION_CODES.O)
+    private fun showNotification() {
+
+
+        val channelId = NotificationChannel("1","test",NotificationManager.IMPORTANCE_DEFAULT)
+
+        Toast.makeText(this,"Hello Notification", Toast.LENGTH_SHORT).show()
+        val intent = Intent(applicationContext, MainActivity::class.java)
+//        intent.addFlags(Intent.Fla)
+        val pendingIntent = PendingIntent.getActivity(applicationContext, 0, intent, 0)
+        val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+        val notificationBuilder = NotificationCompat.Builder(applicationContext)
+                .setContentText("Test Dummy Notification")
+                .setAutoCancel(true)
+                .setSound(uri)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setChannelId("1")
+                .setContentIntent(pendingIntent)
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channelId)
+        notificationManager.notify(0, notificationBuilder.build())
+
+
+    }
+
+    private fun showAlert() {
+        val builder  = AlertDialog.Builder(this@MainActivity)
+        builder.setTitle("Test Alert Dialog")
+        builder.setMessage("Alert Dialog Work Fine "+ edtName.text)
+
+        builder.setPositiveButton("Yes"){dialogInterface, i ->
+            Toast.makeText(this, "Yes work fine", Toast.LENGTH_SHORT).show()
+            dialogInterface.dismiss()
+        }
+
+        builder.setNegativeButton("No"){dialogInterface, i ->
+            Toast.makeText(this, "Not fine", Toast.LENGTH_SHORT).show()
+            dialogInterface.dismiss()
+        }
+
+        val dialog: AlertDialog = builder.create()
+
+        dialog.show()
 
     }
 
