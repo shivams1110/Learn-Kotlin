@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.ssalphax.kotlinproject.animation.AnimationActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -45,10 +46,17 @@ class MainActivity : AppCompatActivity() {
             showNotification()
         }
 
-        btnNext.setOnClickListener {
+        btnList.setOnClickListener {
             val intent = Intent(this@MainActivity, ListActivity::class.java)
             intent.putExtra("value","Shivam")
             startActivity(intent)
+        }
+
+        btnAnimation.setOnClickListener {
+
+            val intent = Intent(this@MainActivity, AnimationActivity::class.java)
+            startActivity(intent)
+
         }
 
 

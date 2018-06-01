@@ -22,6 +22,10 @@
         <activity
             android:name=".ListActivity"
             android:label="@string/title_activity_next_actitvity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".animation.AnimationActivity"
+            android:label="@string/title_activity_animation"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
