@@ -1,4 +1,4 @@
-package com.ssalphax.kotlinproject
+package com.ssalphax.kotlinproject.activity
 
 import android.annotation.TargetApi
 import android.app.NotificationChannel
@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.ssalphax.kotlinproject.R
 import com.ssalphax.kotlinproject.animation.AnimationActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -57,6 +58,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, AnimationActivity::class.java)
             startActivity(intent)
 
+        }
+
+        btnRecycler.setOnClickListener {
+            val intent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
+            startActivity(intent)
         }
 
 

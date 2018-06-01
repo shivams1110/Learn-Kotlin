@@ -1,4 +1,4 @@
-package com.ssalphax.kotlinproject
+package com.ssalphax.kotlinproject.activity
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.ssalphax.kotlinproject.R
 
 import kotlinx.android.synthetic.main.activity_next_actitvity.*
 import kotlinx.android.synthetic.main.content_next_actitvity.*
