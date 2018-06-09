@@ -75,11 +75,14 @@
         android:id="@+id/btnAnimation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="28dp"
         android:text="Animation Activity"
+        app:layout_constraintBottom_toTopOf="@+id/btnFragment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNotification" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNotification"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnRecycler"
@@ -91,10 +94,19 @@
         android:layout_marginTop="8dp"
         android:text="RecyclerView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintEnd_toStartOf="@+id/btnFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnList"
         app:layout_constraintVertical_bias="0.13" />
+
+    <Button
+        android:id="@+id/btnFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="156dp"
+        android:layout_marginEnd="40dp"
+        android:text="Fragment Activty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
